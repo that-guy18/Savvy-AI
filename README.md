@@ -1,65 +1,70 @@
-# Savvy-AI
-# 🤖 Savvy AI - Next Generation Chatbot Interface
+# Savvy AI & ChatGem (Powered by Google Gemini)
 
-A stunning, modern chatbot interface built with pure HTML, CSS, and JavaScript. Features glassmorphism design, smooth animations, and an attractive user experience that stands out from traditional chatbots.
-
-![Savvy AI](https://img.shields.io/badge/Version-1.0.0-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![Python](https://img.shields.io/badge/python-3670A0?logo=python&logoColor=ffdd54)
-
-## ✨ Features
-
-### 🎨 Visual Design
-- **Glassmorphism UI** - Modern frosted glass effect with backdrop blur
-- **Animated Background** - 30+ floating particles creating depth and movement
-- **Gradient Themes** - Beautiful purple-pink gradients throughout
-- **Smooth Animations** - Elegant slide, fade, and pulse effects on all elements
-- **Responsive Design** - Works perfectly on desktop and mobile devices
-
-### 🚀 Functionality
-- **Real-time Messaging** - Instant message display with smooth animations
-- **Typing Indicator** - Animated dots showing AI is processing
-- **Quick Suggestions** - Pre-made prompt chips for easy interaction
-- **Auto-scroll** - Automatically scrolls to latest messages
-- **Timestamps** - Each message displays the time it was sent
-- **Online Status** - Live status indicator with blinking animation
-- **Smart Input** - Auto-resizing textarea with keyboard shortcuts
-
-### 💬 User Experience
-- **Welcome Screen** - Friendly greeting with suggested actions
-- **Message Bubbles** - Distinct styling for user and AI messages
-- **Custom Scrollbar** - Styled to match the overall theme
-- **Hover Effects** - Interactive feedback on all clickable elements
-- **Disabled States** - Prevents multiple sends while AI is typing
-
-## ⌨️ Keyboard Shortcuts
-
-- **Enter** - Send message
-- **Shift + Enter** - New line in message
-- **Escape** - Clear input (custom implementation needed)
-
-## 📱 Browser Support
-
-- ✅ Chrome 90+
-- ✅ Firefox 88+
-- ✅ Safari 14+
-- ✅ Edge 90+
-- ✅ Opera 76+
-
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+An intelligent, modern AI chat application featuring both a responsive web interface (Flask + Glassmorphism UI) and an interactive command-line interface (CLI) powered by the official Google GenAI Python SDK (`google-genai`).
 
 ---
 
-⭐ If you found this project helpful, please consider giving it a star!
+## 🚀 Features
+
+- **Selected Model:** `gemini-3.5-flash-lite` (Blazing fast, verified working with low latency and reliable rate limits).
+- **Auto-Failover Resilience:** Automatically falls back across active models (`gemini-3.6-flash`, `gemini-3.5-flash`, `gemini-flash-lite-latest`) if temporary provider demand spikes occur.
+- **Modern Web Interface:**
+  - Glassmorphism design with animated floating particles.
+  - Live Markdown rendering (headings, bullet points, numbered lists, blockquotes, code blocks, tables).
+  - Code syntax styling.
+  - Context-aware multi-turn conversation memory.
+  - Quick-start suggestion chips.
+  - Typing indicator and clear chat button.
+- **Terminal CLI (`chat.py`):**
+  - Interactive multi-turn chat directly in the terminal.
+  - Commands: `clear` to reset context, `exit` or `quit` to exit.
+
+---
+
+## 🛠️ Setup & Installation
+
+### 1. Requirements
+Ensure Python 3.10+ is installed. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Environment Configuration
+Verify your `.env` file contains your API key:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+GEMINI_MODEL=gemini-3.5-flash-lite
+```
+
+---
+
+## 💻 Usage
+
+### Run the Web Application
+```bash
+python main.py
+```
+Then open your browser at [http://127.0.0.1:5000](http://127.0.0.1:5000).
+
+### Run the Terminal CLI
+```bash
+python chat.py
+```
+
+---
+
+## 📁 Project Structure
+
+```
+chat_gem/
+├── main.py              # Flask backend server with API endpoints
+├── chat.py              # Interactive CLI chat assistant
+├── requirements.txt     # Python dependencies
+├── .env                 # Environment variables (API key & model config)
+├── templates/
+│   └── index.html       # Web UI with glassmorphism & markdown support
+├── static/
+│   └── images/          # UI icons & assets
+└── README.md            # Documentation
+```
+
