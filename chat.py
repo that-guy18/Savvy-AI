@@ -2,9 +2,11 @@ import os
 import sys
 import warnings
 
-# Ensure UTF-8 output handling on Windows consoles
+# Ensure UTF-8 output handling and ANSI color processing on Windows consoles
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if os.name == "nt":
+    os.system("")
 
 from dotenv import load_dotenv
 from google import genai
@@ -38,12 +40,14 @@ Provide clear, structured, and insightful answers. Format code blocks and lists 
 # ANSI Color Codes for Modern Dark Terminal Styling
 C_RESET = "\033[0m"
 C_BOLD = "\033[1m"
+C_DIM = "\033[2m"
 C_CYAN = "\033[1;36m"
-C_INDIGO = "\033[1;34m"
+C_INDIGO = "\033[1;38;5;99m"
+C_PURPLE = "\033[1;35m"
 C_GREEN = "\033[1;32m"
-C_GRAY = "\033[90m"
-C_YELLOW = "\033[33m"
-C_WHITE = "\033[97m"
+C_GRAY = "\033[38;5;244m"
+C_YELLOW = "\033[1;33m"
+C_WHITE = "\033[1;37m"
 
 
 def send_chat_message(history: list, user_message: str) -> tuple[str, str]:
@@ -79,48 +83,50 @@ def send_chat_message(history: list, user_message: str) -> tuple[str, str]:
 
 
 def main():
-    print(f"\n{C_CYAN}+-------------------------------------------------------------+{C_RESET}")
-    print(f"{C_CYAN}|{C_RESET}  {C_BOLD}{C_WHITE}SAVVY AI{C_RESET} - {C_GRAY}Next-Gen Terminal Assistant{C_RESET}                 {C_CYAN}|{C_RESET}")
-    print(f"{C_CYAN}|{C_RESET}  {C_GRAY}Model:{C_RESET} {C_GREEN}{DEFAULT_MODEL}{C_RESET}   {C_GRAY}Status:{C_RESET} {C_GREEN}Online{C_RESET}                      {C_CYAN}|{C_RESET}")
-    print(f"{C_CYAN}|{C_RESET}  {C_GRAY}Commands:{C_RESET} {C_YELLOW}'clear'{C_RESET} {C_GRAY}to reset{C_RESET} | {C_YELLOW}'exit'{C_RESET} {C_GRAY}to quit{C_RESET}               {C_CYAN}|{C_RESET}")
-    print(f"{C_CYAN}+-------------------------------------------------------------+{C_RESET}\n")
+    print()
+    print(f" {C_INDIGO}╭─────────────────────────────────────────────────────────────╮{C_RESET}")
+    print(f" {C_INDIGO}│{C_RESET}  {C_BOLD}{C_WHITE}SAVVY AI{C_RESET} {C_PURPLE}✦{C_RESET} {C_GRAY}Next-Gen Intelligent Assistant{C_RESET}              {C_INDIGO}│{C_RESET}")
+    print(f" {C_INDIGO}│{C_RESET}  {C_GRAY}Model:{C_RESET} {C_CYAN}{DEFAULT_MODEL}{C_RESET}  {C_GRAY}•{C_RESET}  {C_GRAY}Status:{C_RESET} {C_GREEN}● Online{C_RESET}                   {C_INDIGO}│{C_RESET}")
+    print(f" {C_INDIGO}│{C_RESET}  {C_DIM}Type {C_RESET}{C_YELLOW}clear{C_RESET}{C_DIM} to reset context, {C_RESET}{C_YELLOW}exit{C_RESET}{C_DIM} or {C_RESET}{C_YELLOW}quit{C_RESET}{C_DIM} to leave{C_RESET}       {C_INDIGO}│{C_RESET}")
+    print(f" {C_INDIGO}╰─────────────────────────────────────────────────────────────╯{C_RESET}")
+    print()
 
     history = []
 
     while True:
         try:
-            user_input = input(f"{C_INDIGO}You:{C_RESET} ").strip()
+            user_input = input(f" {C_CYAN}You ›{C_RESET} ").strip()
         except (KeyboardInterrupt, EOFError):
-            print(f"\n{C_GRAY}Session ended. Goodbye!{C_RESET}\n")
+            print(f"\n\n {C_GRAY}Session closed. Have a great day!{C_RESET}\n")
             break
 
         if not user_input:
             continue
 
         if user_input.lower() in ("exit", "quit"):
-            print(f"\n{C_GRAY}Session ended. Goodbye!{C_RESET}\n")
+            print(f"\n {C_GRAY}Session closed. Have a great day!{C_RESET}\n")
             break
 
         if user_input.lower() == "clear":
             history.clear()
-            print(f"\n{C_YELLOW}[Conversation context cleared]{C_RESET}\n")
+            print(f"\n {C_YELLOW}⚡ Conversation context reset.{C_RESET}\n")
             continue
 
-        print(f"{C_GRAY}Thinking...{C_RESET}", end="\r", flush=True)
+        print(f" {C_GRAY}Thinking...{C_RESET}", end="\r", flush=True)
 
         try:
             reply, model_used = send_chat_message(history, user_input)
-            print(" " * 25, end="\r", flush=True)
-            print(f"{C_CYAN}Savvy AI {C_GRAY}({model_used}){C_RESET}:")
+            print(" " * 30, end="\r", flush=True)
+            print(f" {C_PURPLE}Savvy AI{C_RESET} {C_DIM}({model_used}){C_RESET}:")
             print(f"{C_WHITE}{reply}{C_RESET}")
-            print(f"{C_GRAY}{'-' * 60}{C_RESET}\n")
+            print(f" {C_GRAY}{'─' * 60}{C_RESET}\n")
 
             history.append({"role": "user", "content": user_input})
             history.append({"role": "model", "content": reply})
 
         except Exception as e:
-            print(" " * 25, end="\r", flush=True)
-            print(f"\033[1;31m[Error]\033[0m {e}\n")
+            print(" " * 30, end="\r", flush=True)
+            print(f" \033[1;31m[Error]\033[0m {e}\n")
 
 
 if __name__ == "__main__":
