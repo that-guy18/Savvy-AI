@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savvy AI — Next-Gen Intelligence</title>
     <link rel="icon" type="image/avif" href="{{ url_for('static', filename='images/logo.avif') }}">
-
+    
     <!-- Typography: Lato (Clean UI & Body) & Merriweather (Editorial Headings & Brand) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    
     <!-- Marked.js for Markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
@@ -70,7 +67,7 @@
             overflow: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            background-image:
+            background-image: 
                 radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.1) 0%, transparent 45%),
                 radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.07) 0%, transparent 40%),
                 radial-gradient(circle at 0% 50%, rgba(14, 165, 233, 0.05) 0%, transparent 35%);
@@ -208,15 +205,8 @@
         }
 
         @keyframes pulseDot {
-            0% {
-                transform: scale(1);
-                opacity: 0.8;
-            }
-
-            100% {
-                transform: scale(2.2);
-                opacity: 0;
-            }
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(2.2); opacity: 0; }
         }
 
         .btn-header {
@@ -303,15 +293,8 @@
         }
 
         @keyframes floatLogo {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-4px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
         }
 
         .hero-logo-img {
@@ -415,7 +398,6 @@
                 opacity: 0;
                 transform: translateY(8px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -541,10 +523,7 @@
             margin-bottom: 0;
         }
 
-        .msg-text h1,
-        .msg-text h2,
-        .msg-text h3,
-        .msg-text h4 {
+        .msg-text h1, .msg-text h2, .msg-text h3, .msg-text h4 {
             font-family: var(--font-display);
             color: #ffffff;
             font-weight: 700;
@@ -552,20 +531,11 @@
             margin: 16px 0 8px 0;
         }
 
-        .msg-text h1 {
-            font-size: 18px;
-        }
+        .msg-text h1 { font-size: 18px; }
+        .msg-text h2 { font-size: 16px; }
+        .msg-text h3 { font-size: 15px; }
 
-        .msg-text h2 {
-            font-size: 16px;
-        }
-
-        .msg-text h3 {
-            font-size: 15px;
-        }
-
-        .msg-text ul,
-        .msg-text ol {
+        .msg-text ul, .msg-text ol {
             margin: 8px 0 12px 22px;
             display: flex;
             flex-direction: column;
@@ -597,8 +567,7 @@
             font-size: 13px;
         }
 
-        .msg-text th,
-        .msg-text td {
+        .msg-text th, .msg-text td {
             border: 1px solid var(--border-subtle);
             padding: 8px 12px;
             text-align: left;
@@ -673,7 +642,7 @@
             font-size: 12.5px;
         }
 
-        .msg-text :not(pre)>code {
+        .msg-text :not(pre) > code {
             background: rgba(99, 102, 241, 0.12);
             color: #c7d2fe;
             border: 1px solid rgba(99, 102, 241, 0.2);
@@ -713,23 +682,14 @@
             animation: dotWave 1.4s infinite ease-in-out;
         }
 
-        .t-dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .t-dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
+        .t-dot:nth-child(2) { animation-delay: 0.2s; }
+        .t-dot:nth-child(3) { animation-delay: 0.4s; }
 
         @keyframes dotWave {
-
-            0%,
-            60%,
-            100% {
+            0%, 60%, 100% {
                 transform: translateY(0);
                 opacity: 0.4;
             }
-
             30% {
                 transform: translateY(-5px);
                 opacity: 1;
@@ -814,13 +774,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Responsive Breakpoints */
@@ -828,30 +783,25 @@
             .chat-app {
                 padding: 10px 12px;
             }
-
             .suggestion-grid {
                 grid-template-columns: 1fr;
             }
-
             .welcome-wrap h1 {
                 font-size: 26px;
             }
-
             .message-row {
                 max-width: 95%;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="chat-app">
         <!-- Modern App Header -->
         <header class="app-header">
             <div class="brand-group">
                 <div class="brand-icon-wrapper">
-                    <img src="{{ url_for('static', filename='images/logo.avif') }}" alt="Savvy AI Logo"
-                        class="brand-logo-img">
+                    <img src="{{ url_for('static', filename='images/logo.avif') }}" alt="Savvy AI Logo" class="brand-logo-img">
                 </div>
                 <div class="brand-meta">
                     <div class="brand-name">
@@ -861,15 +811,14 @@
                     <span class="brand-sub">Intelligent Assistant</span>
                 </div>
             </div>
-
+            
             <div class="header-actions">
                 <div class="status-badge">
                     <span class="status-dot"></span>
                     <span>Ready</span>
                 </div>
                 <button class="btn-header" onclick="resetChat()" title="Start New Conversation">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
                         <path d="M21 3v5h-5"></path>
                         <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
@@ -884,40 +833,33 @@
         <main class="chat-body" id="chatBody">
             <div class="welcome-wrap" id="welcomeWrap">
                 <div class="welcome-hero-avatar">
-                    <img src="{{ url_for('static', filename='images/logo.avif') }}" alt="Savvy AI"
-                        class="hero-logo-img">
+                    <img src="{{ url_for('static', filename='images/logo.avif') }}" alt="Savvy AI" class="hero-logo-img">
                 </div>
                 <div class="welcome-badge">
                     ✨ Powered by Google Gemini
                 </div>
                 <h1>How can I assist you today?</h1>
-                <p>Ask questions, analyze logic, generate and refactor code, or brainstorm ideas with real-time AI
-                    assistance.</p>
-
+                <p>Ask questions, analyze logic, generate and refactor code, or brainstorm ideas with real-time AI assistance.</p>
+                
                 <div class="suggestion-grid">
-                    <button class="suggestion-card"
-                        onclick="sendPrompt('Write a clean Python script to fetch data from a REST API with error handling')">
+                    <button class="suggestion-card" onclick="sendPrompt('Write a clean Python script to fetch data from a REST API with error handling')">
                         <div class="card-title">🐍 Python REST API Client</div>
                         <div class="card-desc">Robust HTTP requests, status code checking, and JSON parsing.</div>
                     </button>
-
-                    <button class="suggestion-card"
-                        onclick="sendPrompt('Explain the core principles of clean architecture and microservices simply')">
+                    
+                    <button class="suggestion-card" onclick="sendPrompt('Explain the core principles of clean architecture and microservices simply')">
                         <div class="card-title">🏛️ Clean Architecture</div>
                         <div class="card-desc">Domain separation, loose coupling, and maintainable design.</div>
                     </button>
-
-                    <button class="suggestion-card"
-                        onclick="sendPrompt('Give me 4 practical techniques to optimize web application performance')">
+                    
+                    <button class="suggestion-card" onclick="sendPrompt('Give me 4 practical techniques to optimize web application performance')">
                         <div class="card-title">⚡ Web Performance</div>
                         <div class="card-desc">Asset compression, caching strategies, and render cycle efficiency.</div>
                     </button>
-
-                    <button class="suggestion-card"
-                        onclick="sendPrompt('Help me write a concise, professional project summary and README outline')">
+                    
+                    <button class="suggestion-card" onclick="sendPrompt('Help me write a concise, professional project summary and README outline')">
                         <div class="card-title">📋 Project Documentation</div>
-                        <div class="card-desc">Clear feature highlights, architecture diagrams, and quickstart guide.
-                        </div>
+                        <div class="card-desc">Clear feature highlights, architecture diagrams, and quickstart guide.</div>
                     </button>
                 </div>
             </div>
@@ -925,11 +867,14 @@
 
         <!-- Bottom Input Bar -->
         <div class="chat-input-area">
-            <textarea id="userInput" class="input-box"
-                placeholder="Message Savvy AI... (Press Enter to send, Shift+Enter for new line)" rows="1"></textarea>
+            <textarea 
+                id="userInput" 
+                class="input-box" 
+                placeholder="Message Savvy AI... (Press Enter to send, Shift+Enter for new line)" 
+                rows="1"
+            ></textarea>
             <button class="btn-send" id="sendBtn" onclick="sendMessage()" title="Send Message">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"
-                    stroke-linecap="round" stroke-linejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                     <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                 </svg>
@@ -947,13 +892,13 @@
         let conversation = [];
 
         // Auto-expand textarea cleanly
-        userInput.addEventListener('input', function () {
+        userInput.addEventListener('input', function() {
             this.style.height = 'auto';
             this.style.height = Math.min(this.scrollHeight, 140) + 'px';
         });
 
         // Enter sends message, Shift+Enter inserts newline
-        userInput.addEventListener('keydown', function (e) {
+        userInput.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 sendMessage();
@@ -1010,7 +955,7 @@
             if (!window.marked || typeof marked.parse !== 'function') {
                 return escapeText(md).replace(/\n/g, '<br>');
             }
-
+            
             const rawHtml = marked.parse(md);
             const parser = new DOMParser();
             const doc = parser.parseFromString(rawHtml, 'text/html');
@@ -1080,26 +1025,26 @@
                     history: conversation
                 })
             })
-                .then(res => res.json())
-                .then(data => {
-                    hideTyping();
-                    isSending = false;
-                    sendBtn.disabled = false;
-                    userInput.focus();
+            .then(res => res.json())
+            .then(data => {
+                hideTyping();
+                isSending = false;
+                sendBtn.disabled = false;
+                userInput.focus();
 
-                    const reply = data.reply || "No response received.";
-                    appendMessage(reply, 'ai');
+                const reply = data.reply || "No response received.";
+                appendMessage(reply, 'ai');
 
-                    // Persist context
-                    conversation.push({ role: 'user', content: text });
-                    conversation.push({ role: 'model', content: reply });
-                })
-                .catch(err => {
-                    hideTyping();
-                    isSending = false;
-                    sendBtn.disabled = false;
-                    appendMessage("Error: Could not reach the assistant. " + err.message, 'ai');
-                });
+                // Persist context
+                conversation.push({ role: 'user', content: text });
+                conversation.push({ role: 'model', content: reply });
+            })
+            .catch(err => {
+                hideTyping();
+                isSending = false;
+                sendBtn.disabled = false;
+                appendMessage("Error: Could not reach the assistant. " + err.message, 'ai');
+            });
         }
 
         function appendMessage(text, sender) {
@@ -1107,10 +1052,10 @@
             row.className = `message-row ${sender}`;
 
             const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            const avatarContent = sender === 'user'
+            const avatarContent = sender === 'user' 
                 ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`
                 : `<img src="${BOT_LOGO_URL}" alt="Savvy AI" class="bot-avatar-img">`;
-
+            
             const content = sender === 'ai' ? renderMarkdown(text) : escapeText(text).replace(/\n/g, '<br>');
 
             let footerHtml = `
@@ -1212,5 +1157,4 @@
         }
     </script>
 </body>
-
 </html>
